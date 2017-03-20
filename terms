@@ -1,0 +1,31 @@
+###Written by Brian Winkler.
+###This script is intended for use with the i3 window manager.
+###This script populates a workspace with 4 xterm terminals
+###in a 4x4 configuration.
+###This script can easily be modifyed to use any terminal emulator by
+###Replacing 'xterm' with the terminal of choice.
+
+
+
+
+#!/bin/bash
+
+exec xterm &
+
+sleep 0.3
+
+i3-msg 'split h' &&
+
+exec xterm &
+sleep 0.3
+
+i3-msg 'split v' &&
+
+exec xterm &
+sleep 0.3
+
+i3-msg 'focus left' &&
+i3-msg 'split v' &&
+exec xterm &
+
+exit 0
